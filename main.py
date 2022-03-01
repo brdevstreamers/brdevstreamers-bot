@@ -30,7 +30,7 @@ def job():
                 print(f'Couldnt Twit {stream["user_name"]} stream...')
 
 
-schedule.every(5).minutes.do(job)
+schedule.every(30).seconds.do(job)
 print('Bot Scheduled...')
 
 while True:

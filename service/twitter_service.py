@@ -15,7 +15,7 @@ def tweet_stream(stream):
     for tag in stream['tags']:
         hashtags += "#" + camel_case(tag) + " "
 
-    tweet = f"Assista https://brstreamers.dev/to/{stream['user_name']} \n{hashtags}"
+    tweet = f"Assista | {stream['title']} | https://brstreamers.dev/to/{stream['user_name']} \n{hashtags}"
     tweet_image(stream["avatar_url"], tweet)
 
 

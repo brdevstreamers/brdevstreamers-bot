@@ -15,6 +15,7 @@ def get_streams():
         twitch_user = get_streamer(stream['user_id'])
         user_map = {}
         user_map["user_name"] = stream['user_name']
+        user_map["title"] = stream['title']
         user_map["started_at"] = stream['started_at']
         user_map['avatar_url'] = twitch_user['profile_image_url']
         

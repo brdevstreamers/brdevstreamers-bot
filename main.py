@@ -9,6 +9,7 @@ import time
 from service.twitch_service import get_streams
 from service.twitter_service import tweet_stream
 
+print('Starting Bot...')
 
 config = dotenv_values(".env")
 twitch = Twitch(config['CLIENT_ID'], config['CLIENT_SECRET'])
@@ -30,6 +31,7 @@ def job():
 
 
 schedule.every(5).minutes.do(job)
+print('Bot Scheduled...')
 
 while True:
     schedule.run_pending()

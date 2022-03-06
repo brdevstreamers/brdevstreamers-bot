@@ -15,7 +15,7 @@ def tweet_stream(stream):
     for tag in stream['tags']:
         hashtags += "#" + camel_case(tag) + " "
 
-    tweet = f"Assista | {stream['title']} | https://brstreamers.dev/to/{stream['user_name']} \n{hashtags}"
+    tweet = f"Assista | {stream['title']} | https://brstreamers.dev/to/{stream['user_name']} \n #twitch #programacao #livestream"
     tweet_image(stream["avatar_url"], tweet)
 
 
@@ -35,10 +35,10 @@ def tweet_image(url, message):
         t_upload = Twitter(domain='upload.twitter.com',
             auth=OAuth(config['TWITTER_ACCESS_TOKEN'], config['TWITTER_ACCESS_SECRET'], config['TWITTER_API_KEY'], config['TWITTER_API_SECRET']))
         
-        id_img1 = t_upload.media.upload(media=imagedata)["media_id_string"]
+        # id_img1 = t_upload.media.upload(media=imagedata)["media_id_string"]
         
           
-        t.statuses.update(media_ids=id_img1, status=message)
+        # t.statuses.update(media_ids=id_img1, status=message)
         os.remove(filename)
     else:
         print("Unable to download image")

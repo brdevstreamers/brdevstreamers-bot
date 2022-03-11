@@ -1,18 +1,23 @@
-name: Docker Image CI
+name: Build and Public
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push]
 
 jobs:
-
-  build:
-
+  publish-hello-world-image:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag brdevstreamers-bot:$(date +%s)
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build the brstreamers-bot Docker image
+      run: |
+        docker build . --tag ghcr.io/Br-Dev-Streamers/brdevstreamers-bot:latest
+        docker run ghcr.io/Br-Dev-Streamers/brdevstreamers-bot:latest
+        docker push ghcr.io/Br-Dev-Streamers/brdevstreamers-bot:latest

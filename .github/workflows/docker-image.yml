@@ -18,6 +18,6 @@ jobs:
 
     - name: Build the brstreamers-bot Docker image
       run: |
-        docker build -t ghcr.io/Br-Dev-Streamers/brdevstreamers-bot:latest .
-        docker run ghcr.io/Br-Dev-Streamers/brdevstreamers-bot:latest
-        docker push ghcr.io/Br-Dev-Streamers/brdevstreamers-bot:latest
+        docker build -t ghcr.io/br-dev-streamers/brdevstreamers-bot:latest .
+        docker run ghcr.io/br-dev-streamers/brdevstreamers-bot:latest
+        docker push ghcr.io/br-dev-streamers/brdevstreamers-bot:latest

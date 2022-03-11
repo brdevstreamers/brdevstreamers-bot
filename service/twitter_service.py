@@ -1,14 +1,15 @@
 import os
 from re import sub
 from twitter import *
-from dotenv import dotenv_values
-config = dotenv_values(".env")
+from dotenv import load_dotenv
 from PIL import Image
 import requests
 from io import BytesIO
+load_dotenv()
+
 
 t = Twitter(
-    auth=OAuth(config['TWITTER_ACCESS_TOKEN'], config['TWITTER_ACCESS_SECRET'], config['TWITTER_API_KEY'], config['TWITTER_API_SECRET']))
+    auth=OAuth(os.environ('TWITTER_ACCESS_TOKEN'), os.environ('TWITTER_ACCESS_SECRET'), os.environ('TWITTER_API_KEY'), os.environ('TWITTER_API_SECRET')))
 
 def tweet_stream(stream):
     hashtags = ""

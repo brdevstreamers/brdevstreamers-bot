@@ -1,8 +1,9 @@
-from dotenv import dotenv_values
+import os
+from dotenv import load_dotenv
 from twitchAPI.twitch import Twitch
 
-config = dotenv_values(".env")
-twitch = Twitch(config['CLIENT_ID'], config['CLIENT_SECRET'])
+load_dotenv()
+twitch = Twitch(os.environ('CLIENT_ID'), os.environ('CLIENT_SECRET'))
 streams_map = dict()
 
 

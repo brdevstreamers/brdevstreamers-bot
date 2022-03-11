@@ -34,7 +34,7 @@ def tweet_image(url, message):
         # - then upload medias one by one on Twitter's dedicated server
         #   and collect each one's id:
         t_upload = Twitter(domain='upload.twitter.com',
-            auth=OAuth(config['TWITTER_ACCESS_TOKEN'], config['TWITTER_ACCESS_SECRET'], config['TWITTER_API_KEY'], config['TWITTER_API_SECRET']))
+            auth=OAuth(os.environ['TWITTER_ACCESS_TOKEN'], os.environ['TWITTER_ACCESS_SECRET'], os.environ['TWITTER_API_KEY'], os.environ['TWITTER_API_SECRET']))
         
         id_img1 = t_upload.media.upload(media=imagedata)["media_id_string"]
         

@@ -1,6 +1,7 @@
 
 from ctypes import sizeof
-from dotenv import dotenv_values
+import os
+from dotenv import load_dotenv
 from crontab import CronTab
 from twitchAPI.twitch import Twitch
 import schedule
@@ -11,8 +12,8 @@ from service.twitter_service import tweet_stream
 
 print('Starting Bot...')
 
-config = dotenv_values(".env")
-twitch = Twitch(config['CLIENT_ID'], config['CLIENT_SECRET'])
+load_dotenv()
+twitch = Twitch(os.environ['CLIENT_ID'], os.environ['CLIENT_SECRET'])
 streams_map = dict()
 
 streams_map = {}

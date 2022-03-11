@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from twitchAPI.twitch import Twitch
 
 load_dotenv()
-twitch = Twitch(os.environ('CLIENT_ID'), os.environ('CLIENT_SECRET'))
+twitch = Twitch(os.environ['CLIENT_ID'], os.environ['CLIENT_SECRET'])
 streams_map = dict()
 
 

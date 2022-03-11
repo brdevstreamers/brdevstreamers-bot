@@ -9,7 +9,7 @@ load_dotenv()
 
 
 t = Twitter(
-    auth=OAuth(os.environ('TWITTER_ACCESS_TOKEN'), os.environ('TWITTER_ACCESS_SECRET'), os.environ('TWITTER_API_KEY'), os.environ('TWITTER_API_SECRET')))
+    auth=OAuth(os.environ['TWITTER_ACCESS_TOKEN'], os.environ['TWITTER_ACCESS_SECRET'], os.environ['TWITTER_API_KEY'], os.environ['TWITTER_API_SECRET']))
 
 def tweet_stream(stream):
     hashtags = ""
